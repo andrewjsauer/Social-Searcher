@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         ProgressBar progressBar;
         Toolbar toolbar;
 
-        static final String API_KEY = "2c39190fed9dc94a";
+        static final String API_KEY = "--";
         static final String API_URL = "https://api.fullcontact.com/v2/person.json?";
 
         @Override

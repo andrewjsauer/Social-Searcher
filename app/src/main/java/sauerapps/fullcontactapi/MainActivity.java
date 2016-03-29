@@ -2,8 +2,8 @@ package sauerapps.fullcontactapi;
 
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -19,13 +19,12 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
+    static final String API_KEY = "2c39190fed9dc94a";
+    static final String API_URL = "https://api.fullcontact.com/v2/person.json?";
         EditText phoneText;
         EditText emailText;
         ProgressBar progressBar;
         Toolbar toolbar;
-
-        static final String API_KEY = "--";
-        static final String API_URL = "https://api.fullcontact.com/v2/person.json?";
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
             phoneText = (EditText) findViewById(R.id.phoneNumberId);
             progressBar = (ProgressBar) findViewById(R.id.progressBarId);
 
-            if (toolbar != null) {
+            if (getSupportActionBar() != null) {
                 setSupportActionBar(toolbar);
                 getSupportActionBar().setTitle(R.string.app_name);
             }
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         public void goSearchPhone(View view) {
 
             if (phoneText.getText().toString().trim().length() == 0) {
-                Toast.makeText(MainActivity.this, "bruhhh, please enter a phone number ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Bruhhh, please enter a phone number ", Toast.LENGTH_SHORT).show();
             } else {
                 new RetrievePhoneNumber().execute();
             }
@@ -72,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
 
     class RetrieveEmailTask extends AsyncTask<Void, Void, String> {
 
-            private Exception exception;
             String email;
+        private Exception exception;
 
             @Override
             protected void onPreExecute() {
@@ -144,8 +143,8 @@ public class MainActivity extends AppCompatActivity {
 
     class RetrievePhoneNumber extends AsyncTask<Void, Void, String> {
 
-        private Exception exception;
         String phoneNumber;
+        private Exception exception;
 
         @Override
         protected void onPreExecute() {

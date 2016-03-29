@@ -35,10 +35,12 @@ public class MainActivity extends AppCompatActivity {
             phoneText = (EditText) findViewById(R.id.phoneNumberId);
             progressBar = (ProgressBar) findViewById(R.id.progressBarId);
 
-            if (getSupportActionBar() != null) {
+            if (toolbar != null) {
                 setSupportActionBar(toolbar);
                 getSupportActionBar().setTitle(R.string.app_name);
             }
+
+
         }
 
 
